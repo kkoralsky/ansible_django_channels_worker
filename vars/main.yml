@@ -1,0 +1,15 @@
+---
+only_channels_args: >
+  {% if only_channels is defined and only_channels|length > 0 %}
+  --only-channels={{ only_channels|join(' --only-channels=') }}
+  {% endif %}
+
+exclude_channels_args: >
+  {% if exclude_channels is defined and exclude_channels|length > 0 %}
+  --exclude-channels={{exclude_channels|join(' --exclude-channels=')}}
+  {% endif %}
+
+channel_layer_args: >
+  {% if channel_layer_name is defined %}
+  --layer {{ channel_layer_name }}
+  {% endif %}

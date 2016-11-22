@@ -1,0 +1,14 @@
+galaxy_info:
+  author: Karol Ossowski
+  description: django-channel workers in supervisor
+
+  min_ansible_version: 1.6
+
+  platforms:
+  - name: Debian
+    versions:
+    - all
+
+  galaxy_tags: []
+
+dependencies: [ django_supervisor ]

@@ -1,0 +1,15 @@
+[program:{{ program_name }}]
+priority={{ priority }}
+command={{ venv_path }}/bin/python {{ app_path }}/manage.py runworker --verbosity {{ verbosity|default(0) }}
+  --threads={{ threads }} {{ channel_layer_args }} {{ only_channels_args }} {{ exclude_channels_args }}
+directory = {{ app_path }}
+environment = DJANGO_SETTINGS_MODULE="{{ django_settings_module }}"
+autostart=true
+autorestart=true
+startretries=3
+stdout_logfile={{ log_path }}/{{ program_name }}-out.log
+stdout_logfile_maxbytes=0
+stderr_logfile={{ log_path }}/{{ program_name }}-err.log
+stderr_logfile_maxbytes=0
+user={{ user }}
+stopsignal=INT

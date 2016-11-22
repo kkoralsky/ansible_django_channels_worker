@@ -1,0 +1,11 @@
+---
+program_name: '{{ app }}_channels_worker'
+priority: 9
+supervisor_conf_tpl: _default_supervisor.conf.j2
+
+threads: '{{ansible_processor_vcpus}}'
+verbosity: 0
+
+#channel_layer_name: default
+#only_channels: []
+#exclude_channels: []

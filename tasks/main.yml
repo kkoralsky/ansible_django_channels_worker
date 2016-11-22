@@ -1,0 +1,8 @@
+---
+- name: configure supervisor
+  template:
+    src: '{{ supervisor_conf_tpl }}'
+    dest: '/etc/supervisor/conf.d/{{ program_name }}.conf'
+  notify: reload supervisor
+  become: true
+  tags: superuser
